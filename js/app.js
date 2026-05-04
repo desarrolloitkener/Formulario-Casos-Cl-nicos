@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  /** Reemplazar con la URL del despliegue de Apps Script (Web app) */
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8Bwy_TUo6bk_IdNcMXeLb4aOm5Ekqd6Hk93jHNaO_Qr_91rd_N2P02-CeT76PLY2ZQQ/exec";
 
   const formRegistro = document.getElementById("form-registro");
@@ -273,9 +272,9 @@
     );
     if (campoAbierta && typeof campoAbierta.value === "string") {
       campoAbierta.value = campoAbierta.value.trim();
-      if (!campoAbierta.value || campoAbierta.value.length < 10) {
+      if (!campoAbierta.value || campoAbierta.value.length < 5) {
         campoAbierta.setCustomValidity(
-          "Escriba una respuesta de al menos 10 caracteres."
+          "Escriba una respuesta de al menos 5 caracteres."
         );
       } else {
         campoAbierta.setCustomValidity("");
@@ -291,7 +290,7 @@
       alertEnvio.hidden = false;
       alertEnvio.className = "alert alert-error";
       alertEnvio.textContent =
-        "Falta configurar la URL de Google Apps Script en js/app.js (constante APPS_SCRIPT_URL).";
+        "Falta configurar la URL de Google Apps Script";
       return;
     }
 
