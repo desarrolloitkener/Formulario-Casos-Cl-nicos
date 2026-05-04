@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#005b71" />
+    <title>Evaluación clínica — Laboratorios Kener</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a href="#contenido" class="skip-link">Ir al contenido</a>
+    <!-- Logo PNG oficial: guardar como img/logo-kener.png y sustituir src por esa ruta si lo prefiere. -->
+    <div class="site-topbar" role="banner">
+      <div class="site-topbar-inner">
+        <a
+          class="brand-link"
+          href="https://www.kener.com.mx/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="brand-logo"
+            src="img/kener-logo.svg"
+            width="220"
+            height="48"
+            alt="Kener — Laboratorio. Ir al sitio corporativo."
+            decoding="async"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="page-wrap" id="contenido">
+      <header class="header">
+        <h1>Evaluación de casos clínicos</h1>
+        <p class="subtitle">
+          Actividad educativa para personal médico y residentes. Innovación y
+          calidad al servicio de la salud.
+        </p>
+      </header>
+
+      <!--
+        Video de fondo (opción recomendada: archivos locales optimizados en /video/).
+        Exporte corto en bucle, sin audio útil (va muted): registro-bg.webm + registro-bg.mp4
+        Opcional: atributo poster="img/registro-bg-poster.jpg" en <video> (imagen fija hasta que cargue el video).
+        YouTube/Google Drive no son adecuados como src de <video> de fondo.
+      -->
+      <div class="registro-hero">
+        <video
+          class="registro-hero-video"
+          preload="metadata"
+          autoplay
+          muted
+          loop
+          playsinline
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <source src="video/registro-bg.webm" type="video/webm" />
+          <source src="video/registro-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="registro-hero-overlay" aria-hidden="true"></div>
+        <div class="registro-hero-inner">
+          <section id="section-registro" class="card" aria-labelledby="titulo-datos">
+        <h2 id="titulo-datos">1. Datos de identificación</h2>
+        <form id="form-registro" class="form-grid two-cols">
+          <label class="field two-cols" style="grid-column: 1 / -1">
+            <span>Nombre completo <span class="hint">(obligatorio)</span></span>
+            <input
+              type="text"
+              name="nombre"
+              required
+              minlength="2"
+              maxlength="200"
+              autocomplete="name"
+              placeholder="Como aparece en su cédula o gremio"
+              title="Escriba al menos 2 caracteres válidos."
+            />
+          </label>
+          <label class="field">
+            <span>Especialidad</span>
+            <input
+              type="text"
+              name="especialidad"
+              required
+              minlength="2"
+              maxlength="120"
+              autocomplete="organization-title"
+              placeholder="Ej. Medicina interna"
+            />
+          </label>
+          <label class="field">
+            <span>Hospital en el que labora</span>
+            <input
+              type="text"
+              name="hospital"
+              required
+              minlength="2"
+              maxlength="200"
+              autocomplete="organization"
+              placeholder="Institución"
+            />
+          </label>
+          <label class="field">
+            <span>Correo electrónico</span>
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              inputmode="email"
+              maxlength="254"
+            />
+          </label>
+          <label class="field">
+            <span>Número de celular</span>
+            <input
+              type="tel"
+              name="celular"
+              required
+              autocomplete="tel"
+              inputmode="tel"
+              minlength="8"
+              maxlength="20"
+              pattern="[+0-9][0-9\s().-]{7,}"
+              title="Use al menos 8 dígitos. Puede incluir + al inicio, espacios o guiones."
+            />
+          </label>
+          <div class="field" style="grid-column: 1 / -1">
+            <span>¿Es visitado por Kener?</span>
+            <div class="radio-row" role="group" aria-label="Visitado por Kener">
+              <label
+                ><input type="radio" name="visitado_kener" value="Sí" required />
+                Sí</label
+              >
+              <label
+                ><input type="radio" name="visitado_kener" value="No" /> No</label
+              >
+            </div>
+          </div>
+          <div class="field" style="grid-column: 1 / -1">
+            <span>¿Desea ser visitado por Kener?</span>
+            <div class="radio-row" role="group" aria-label="Desea visita Kener">
+              <label
+                ><input
+                  type="radio"
+                  name="desea_visita_kener"
+                  value="Sí"
+                  required
+                />
+                Sí</label
+              >
+              <label
+                ><input type="radio" name="desea_visita_kener" value="No" />
+                No</label
+              >
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">
+            Continuar al cuestionario
+          </button>
+        </form>
+          </section>
+        </div>
+      </div>
+
+      <section id="section-examen" class="card" hidden>
+        <span class="badge">Pregunta de opción múltiple</span>
+        <h2>2. Caso asignado (aleatorio)</h2>
+        <form id="form-examen">
+          <div id="mc-container"></div>
+
+          <hr class="section-divider" />
+
+          <span class="badge">Pregunta abierta</span>
+          <h2 style="margin-top: 0.5rem">3. Reflexión institucional</h2>
+          <div id="texto-abierta"></div>
+          <label class="field" style="margin-top: 1rem">
+            <span>Su respuesta</span>
+            <textarea
+              name="respuesta_abierta"
+              required
+              minlength="10"
+              maxlength="8000"
+              placeholder="Describa las alternativas terapéuticas disponibles en su hospital para los escenarios indicados."
+              title="Escriba al menos 10 caracteres significativos."
+            ></textarea>
+          </label>
+
+          <div id="alert-envio" class="alert" hidden role="alert"></div>
+          <button type="submit" class="btn-primary" id="btn-enviar-respuestas">
+            Enviar respuestas
+          </button>
+        </form>
+      </section>
+
+      <section id="section-gracias" class="card" hidden>
+        <div class="thanks-icon" aria-hidden="true">✓</div>
+        <h2 style="text-align: center; border: none; padding: 0">
+          Respuestas enviadas
+        </h2>
+        <p style="text-align: center; color: var(--muted); margin: 0">
+          Gracias por su participación. Puede cerrar esta ventana.
+        </p>
+      </section>
+
+      <footer class="legal">
+        <p class="legal-line">
+          <a
+            class="legal-link"
+            href="https://www.kener.com.mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >kener.com.mx</a
+          >
+          · Laboratorios Kener S.A. de C.V.
+        </p>
+        <p class="legal-line muted">
+          Uso interno — evaluación única. Los datos se utilizan solo para fines
+          de esta actividad.
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/casos.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
