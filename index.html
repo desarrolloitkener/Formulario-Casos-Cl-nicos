@@ -15,7 +15,9 @@
   </head>
   <body>
     <a href="#contenido" class="skip-link">Ir al contenido</a>
-    <!-- Logo PNG oficial: guardar como img/logo-kener.png y sustituir src por esa ruta si lo prefiere. -->
+    <!--
+      Logo oficial: Si el PNG no está en el servidor, se intenta img/kener-logo.svg como respaldo.
+    -->
     <div class="site-topbar" role="banner">
       <div class="site-topbar-inner">
         <a
@@ -26,11 +28,13 @@
         >
           <img
             class="brand-logo"
-            src="img/kener-logo.svg"
+            src="img/logo-kener.png"
             width="220"
             height="48"
             alt="Kener — Laboratorio. Ir al sitio corporativo."
             decoding="async"
+            fetchpriority="high"
+            onerror="this.onerror=null;this.src='img/kener-logo.svg'"
           />
         </a>
       </div>
@@ -44,12 +48,6 @@
         </p>
       </header>
 
-      <!--
-        Video de fondo (opción recomendada: archivos locales optimizados en /video/).
-        Exporte corto en bucle, sin audio útil (va muted): registro-bg.webm + registro-bg.mp4
-        Opcional: atributo poster="img/registro-bg-poster.jpg" en <video> (imagen fija hasta que cargue el video).
-        YouTube/Google Drive no son adecuados como src de <video> de fondo.
-      -->
       <div class="registro-hero">
         <video
           class="registro-hero-video"
@@ -185,10 +183,10 @@
             <textarea
               name="respuesta_abierta"
               required
-              minlength="10"
+              minlength="5"
               maxlength="8000"
               placeholder="Describa las alternativas terapéuticas disponibles en su hospital para los escenarios indicados."
-              title="Escriba al menos 10 caracteres significativos."
+              title="Escriba al menos 5 caracteres significativos."
             ></textarea>
           </label>
 
